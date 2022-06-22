@@ -1,0 +1,46 @@
+.footer {
+    background-color: #ffffff;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    padding: 29px;
+    margin-top: 50px;
+
+    &_logo {
+        text-transform: uppercase;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 30px;
+        color: #101010;
+    }
+
+    &_menu {
+        &_item {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 20px;
+            color: #000000;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &:not(:last-of-type) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &_social {
+        a {
+            &:not(:last-of-type) {
+                margin-right: 15px;
+            }
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
