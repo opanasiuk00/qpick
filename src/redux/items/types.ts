@@ -2,8 +2,9 @@ export type Item = {
   id: string;
   title: string;
   img: string;
-  price: number;
+  price: string;
   type: string;
+  typeName: string;
 };
 export type Items = {
   items: Item[];
@@ -20,7 +21,6 @@ export interface ItemSliceState {
   items: Item[];
   status: Status;
   page: number;
-  type: string;
   limit: number;
   pageCount: number;
 }
