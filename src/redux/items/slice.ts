@@ -1,13 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchItems } from './asyncActions';
-import { ItemSliceState, Status, Item, Items } from './types';
+import { ItemSliceState, Status, Items } from './types';
 
 const initialState: ItemSliceState = {
   items: [],
   page: 1,
   pageCount: 1,
   limit: 6,
-  type: '',
   status: Status.LOADING, // LOADING | SUCCESS | ERROR
 };
 
@@ -21,9 +20,6 @@ const itemSlice = createSlice({
     },
     setPage(state, action) {
       state.page = action.payload;
-    },
-    setType(state, action) {
-      state.type = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -43,6 +39,6 @@ const itemSlice = createSlice({
   },
 });
 
-export const { setItems, setPage, setType } = itemSlice.actions;
+export const { setItems, setPage } = itemSlice.actions;
 
 export default itemSlice.reducer;

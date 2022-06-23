@@ -1,0 +1,19 @@
+@import '../../scss/variables';
+
+.paginator {
+    display: flex;
+    justify-content: center;
+
+    &_item {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0px 5px;
+        cursor: pointer;
+        transition: text-decoration $duration ease;
+
+        &:hover,
+        &.active {
+            text-decoration: underline;
+        }
+    }
+}

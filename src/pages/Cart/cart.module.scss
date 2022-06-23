@@ -1,0 +1,107 @@
+.cart {
+    &_clear {
+        width: 540px;
+        margin: 60px auto 120px;
+        text-align: center;
+
+        img {
+            width: 410px;
+            height: 315px;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 35px;
+            color: #101010;
+            margin-top: 30px;
+        }
+
+        p {
+            color: #838383;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        button {
+            width: 100%;
+            color: #ffffff;
+            font-size: 20px;
+            line-height: 24px;
+            font-weight: 600;
+            padding: 18.5px;
+            background-color: #101010;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+    }
+
+    &_items {
+        &_item {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 30px;
+            padding: 20px;
+            width: 480px;
+
+            &_img {
+                img {
+                    width: 80px;
+                    height: 155.55px;
+                }
+
+                &_count {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    button {
+                        width: 20.8px;
+                        height: 20.8px;
+                        border: none;
+                        color: #ffffff;
+                        border-radius: 50%;
+                        background-color: #FFA542;
+                        font-size: 17px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+
+                        img {
+                            width: 12px;
+                        }
+
+                        &:hover {
+                            background-color: #a66e31;
+                        }
+
+                        &:disabled {}
+                    }
+
+                    span {
+                        font-size: 15px;
+                        font-weight: 600;
+                        line-height: 18px;
+                        color: #AAAAAA;
+                        margin: 0px 5px;
+                    }
+                }
+            }
+
+            &_title {
+                margin-left: 20px;
+
+                h3 {
+                    font-size: 17px;
+                    font-weight: 500;
+                    line-height: 20px;
+                    color: #1C1C27;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
