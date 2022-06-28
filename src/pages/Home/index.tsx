@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { typeList } from '../../components/Header';
 import ItemBlock from '../../components/ItemBlock';
 import { Paginator } from '../../components/Paginator';
 import { selectCartData } from '../../redux/cart/selectors';
@@ -10,28 +11,31 @@ import { fetchItems } from '../../redux/items/asyncActions';
 import { selectItemData } from '../../redux/items/selectors';
 import { setPage } from '../../redux/items/slice';
 import { useAppDispatch } from '../../redux/store';
-import { selectTypeData } from '../../redux/types/selector';
 import styles from './home.module.scss';
 
 const Home: React.FC = () => {
-  const { items, status, page, pageCount } = useSelector(selectItemData);
-  const { type, types } = useSelector(selectTypeData);
-  const { cartItems, totalPrice } = useSelector(selectCartData);
-  console.log(totalPrice);
+  const { items, status, page, pageCount, type } = useSelector(selectItemData);
+  const { cartItems } = useSelector(selectCartData);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    dispatch(fetchItems({ page, type }));
+    console.log(page, type);
     if (type) {
-      navigate(`/?type=${types.find((obj) => obj.type === type)?.name.replace(/ /g, '-')}`);
+      navigate(`/?type=${typeList.find((obj) => obj.type === type)?.name.replace(/ /g, '-')}`);
+      dispatch(fetchItems({ page, type }));
+    } else {
+      dispatch(fetchItems({ page, type }));
+      navigate(`/`);
     }
   }, [page, type]);
 
+  // function paginator change page
   const onChangePage = (page: number) => {
     dispatch(setPage(page));
   };
 
+  // add item to cart
   const addItemToCart = (item: CartItem) => {
     dispatch(addItem(item));
   };

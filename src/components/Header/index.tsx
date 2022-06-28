@@ -3,32 +3,55 @@ import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { selectCartData } from '../../redux/cart/selectors';
 import { useAppDispatch } from '../../redux/store';
-import { fetchType } from '../../redux/types/asyncAction';
-import { selectTypeData } from '../../redux/types/selector';
-import { setType, setTypeName } from '../../redux/types/slice';
+import { setType, setTypeName } from '../../redux/items/slice';
 import styles from './header.module.scss';
+import { selectItemData } from '../../redux/items/selectors';
 
+type typePhone = {
+  name: string;
+  type: string;
+};
 type PopupClick = MouseEvent & {
   path: Node[];
 };
 
+export const typeList: typePhone[] = [
+  { name: 'Показать все', type: '' },
+  { name: 'iPhone 12', type: '1' },
+  { name: 'iPhone 12 Pro Max', type: '2' },
+  { name: 'iPhone 12 Mini', type: '3' },
+  { name: 'iPhone 13', type: '4' },
+  { name: 'iPhone 13 Pro', type: '5' },
+  { name: 'iPhone 13 Pro Max', type: '6' },
+  { name: 'iPhone 13 Mini', type: '7' },
+];
+
 const Header: React.FC = () => {
   const [open, setOpen] = React.useState<boolean>(false);
-
   const sortRef = React.useRef<HTMLDivElement>(null);
+  const isMounted = React.useRef(false);
 
-  const { types, type, typeName } = useSelector(selectTypeData);
-  const { cartLength } = useSelector(selectCartData);
+  const { typeName } = useSelector(selectItemData);
+  const { cartLength, cartItems } = useSelector(selectCartData);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
   React.useEffect(() => {
-    dispatch(fetchType());
+    if (isMounted.current) {
+      const json = JSON.stringify(cartItems);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+  }, [cartItems]);
+
+  React.useEffect(() => {
     const locationSearch = location.search.split('=')[1]?.replace(/-/g, ' ');
-    const typeItem = types.find((obj) => obj.name === locationSearch);
+    const typeItem = typeList.find((obj) => obj.name === locationSearch);
     if (typeItem === undefined && location.pathname === '/') {
       navigate('/');
+      dispatch(setTypeName(''));
+      dispatch(setType(''));
     } else {
       dispatch(setType(typeItem?.type));
       dispatch(setTypeName(typeItem?.name));
@@ -55,25 +78,19 @@ const Header: React.FC = () => {
   return (
     <div className={styles.header}>
       <div className={styles.header_menu}>
-        <h4
-          onClick={() => {
-            dispatch(setType(''));
-            setTypeName('');
-            navigate('/');
-          }}
-          className={styles.header_menu_logo}>
+        <a href="/" className={styles.header_menu_logo}>
           Qpick
-        </h4>
+        </a>
         {location.pathname == '/' && (
           <div ref={sortRef} className={styles.header_menu_trigger}>
             <img onClick={() => setOpen(!open)} src="./img/phone.svg" />
             <p onClick={() => setOpen(!open)}>{typeName ? typeName : 'Выбрать модель телефона'}</p>
             {open && (
               <div className={styles.header_menu_trigger_popup}>
-                {types.map((obj) => (
+                {typeList.map((obj, i) => (
                   <p
                     className={typeName === obj.name ? styles.active : ''}
-                    key={obj.type}
+                    key={i}
                     onClick={() => searchType(obj.name, obj.type)}>
                     {obj.name}
                   </p>
@@ -84,10 +101,6 @@ const Header: React.FC = () => {
         )}
       </div>
       <div className={styles.header_items}>
-        <div className={styles.header_items_favorites}>
-          <img src="./img/favorites.svg" />
-          <span>0</span>
-        </div>
         {location.pathname !== '/cart' && (
           <div onClick={() => navigate('/cart')} className={styles.header_items_cart}>
             <img src="./img/cart.svg" />
