@@ -10,6 +10,18 @@
     flex-direction: column;
 }
 
+@media (min-width: 800px) and (max-width: 1200px) {
+    .wrapper {
+        width: 768px;
+    }
+}
+
+@media (min-width: 325px) and (max-width: 799px) {
+    .wrapper {
+        width: 325px;
+    }
+}
+
 .main {
     flex: 1 1 auto;
 }

@@ -5,16 +5,12 @@ import styles from './footer.module.scss';
 const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
-      <h4 className={styles.footer_logo}>Qpick</h4>
+      <a className={styles.footer_logo} href="/">
+        Qpick
+      </a>
       <ul className={styles.footer_menu}>
         <li className={styles.footer_menu_item}>
-          <NavLink to="/favorites">Избранное</NavLink>
-        </li>
-        <li className={styles.footer_menu_item}>
           <NavLink to="/cart">Корзина</NavLink>
-        </li>
-        <li className={styles.footer_menu_item}>
-          <NavLink to="/contacts">Контакты</NavLink>
         </li>
         <li className={styles.footer_menu_item}>
           <NavLink to="/service">Условия сервиса</NavLink>

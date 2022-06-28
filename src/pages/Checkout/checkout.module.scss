@@ -1,0 +1,149 @@
+@import '../../scss/variables';
+
+//main font-size: 16px;
+
+.checkout {
+    width: 450px;
+    margin: 30px auto 50px;
+    position: relative;
+
+    &_total {
+        width: 100%;
+        background-color: $white;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+
+
+        h3 {
+            margin-bottom: 10px;
+        }
+
+        >div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &_more {
+            margin-top: 10px;
+            text-align: end;
+            color: #0000ff;
+            text-decoration: underline dotted;
+            transition: color $duration ease;
+            cursor: pointer;
+
+            &:hover {
+                color: #0f0f9c;
+            }
+        }
+    }
+
+    &_form {
+        display: block;
+
+        label {
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid $black;
+            border-radius: 5px;
+            margin: 5px 0px 30px;
+            padding: 7.5px;
+
+            &:required {
+                border: 1px solid #CB3D40;
+            }
+        }
+
+        button {
+            padding: 7.5px;
+            @include button;
+        }
+
+
+        &_error {
+            margin-top: -30px;
+            position: absolute;
+            font-weight: 400;
+            color: #CB3D40;
+        }
+    }
+
+    &_popup {
+        background-color: #d6d0d0;
+        border-radius: 10px;
+        box-shadow: 0px 0px 4px 2px #d6d0d0;
+        padding: 15px;
+        width: 450px;
+        position: static;
+
+        z-index: 100;
+
+
+        &_close {
+            display: flex;
+            justify-content: end;
+
+            p {
+                cursor: pointer;
+                margin-bottom: 10px;
+
+                &:hover {
+                    color: #838383;
+                }
+            }
+        }
+
+        &_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $white;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+
+            img {
+                width: 30px;
+                height: 58.65;
+            }
+
+            h3 {
+                font-size: 0.75rem;
+                margin-left: 10px;
+            }
+
+            >div {
+                text-align: center;
+                margin: 10px;
+
+                p {
+                    font-size: 0.75rem;
+                }
+            }
+
+            &_info {
+                color: #878787;
+            }
+        }
+    }
+
+    @media (min-width: 325px) and (max-width: 799px) {
+        &_popup {
+            width: 325px;
+
+            img {
+                display: none;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 325px) and (max-width: 799px) {
+    .checkout {
+        width: 325px;
+    }
+}

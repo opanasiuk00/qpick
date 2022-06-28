@@ -1,5 +1,7 @@
 @import '../../scss/_variables';
 
+//main font-size: 16px;
+
 .header {
     display: flex;
     align-items: center;
@@ -11,11 +13,17 @@
         align-items: center;
 
         &_logo {
-            font-size: 25px;
+            font-size: 1.5625rem;
             font-weight: 700;
-            margin-right: 75px;
             text-transform: uppercase;
+            margin-right: 75px;
             cursor: pointer;
+        }
+
+        @media (min-width: 325px) and (max-width: 799px) {
+            &_logo {
+                margin-right: 20px;
+            }
         }
 
         &_trigger {
@@ -29,7 +37,7 @@
             }
 
             >p {
-                font-size: 15px;
+                font-size: 0.9375rem;
                 padding-left: 15px;
                 line-height: 18px;
                 cursor: pointer;
@@ -42,19 +50,20 @@
 
             &_popup {
                 position: absolute;
-                width: 100%;
                 left: 0px;
                 top: 21px;
+                width: 100%;
                 padding: 10px 0px;
-                border-radius: 0px 0px 10px 10px;
-                font-size: 15px;
                 line-height: 18px;
-                background-color: #ffffff;
+                background-color: $white;
+                border-radius: 0px 0px 10px 10px;
 
                 p {
+                    font-size: 0.9375rem;
+                    font-weight: 400;
                     padding: 15px;
-                    cursor: pointer;
                     transition: all $duration ease;
+                    cursor: pointer;
 
                     &:hover {
                         background-color: #f8f8f8;
@@ -69,28 +78,26 @@
     }
 
     &_items {
-        display: flex;
 
         &_favorites,
         &_cart {
-            width: 22px;
             position: relative;
+            width: 22px;
+            height: 25px;
             cursor: pointer;
 
             span {
+                @include flex-center-center; // display: flex; justify-content: center; align-items: center;
                 position: absolute;
                 top: -5px;
                 right: -10px;
                 width: 17px;
                 height: 17px;
+                background-color: $orange;
                 border-radius: 50%;
-                background-color: #FFA542;
-                color: #FFFFFF;
-                font-size: 15px;
+                font-size: 0.9375rem;
+                color: $white;
                 line-height: 18px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
         }
 

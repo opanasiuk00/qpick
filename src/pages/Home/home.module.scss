@@ -1,23 +1,35 @@
 @import '../../scss/variables';
 
+//main font-size: 16px;
+
 .title {
+    @include flex-center-center; // display: flex; justify-content: center; align-items: center;
     margin-top: 22px;
-    background-color: #101010;
+    background-color: $black;
     border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     height: 197px;
 
     &_name {
-        font-size: 30px;
-        line-height: 40px;
         text-align: center;
+        font-size: 1.875rem;
         font-weight: 600;
-        color: #ffffff;
+        line-height: 40px;
+        color: $white;
         width: 300px;
         margin: 0px 183px 0px 40px;
+    }
+
+    @media (min-width: 800px) and (max-width: 1200px) {
+        &_name {
+            margin: 0px 40px 0px 40px;
+        }
+    }
+
+    @media (min-width: 325px) and (max-width: 799px) {
+        &_name {
+            margin: 0px;
+        }
     }
 
     &_img {
@@ -25,5 +37,11 @@
         height: 189px;
         margin-top: auto;
         margin-bottom: 0px;
+    }
+
+    @media (min-width: 325px) and (max-width: 799px) {
+        &_img {
+            display: none;
+        }
     }
 }
