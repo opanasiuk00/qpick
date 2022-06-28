@@ -7,6 +7,8 @@ const initialState: ItemSliceState = {
   page: 1,
   pageCount: 1,
   limit: 6,
+  type: '',
+  typeName: '',
   status: Status.LOADING, // LOADING | SUCCESS | ERROR
 };
 
@@ -14,12 +16,14 @@ const itemSlice = createSlice({
   name: 'item',
   initialState,
   reducers: {
-    setItems(state, action: PayloadAction<Items>) {
-      state.items = action.payload.items;
-      state.pageCount = action.payload.count;
-    },
     setPage(state, action) {
       state.page = action.payload;
+    },
+    setType(state, action) {
+      state.type = action.payload;
+    },
+    setTypeName(state, action) {
+      state.typeName = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -30,6 +34,9 @@ const itemSlice = createSlice({
     builder.addCase(fetchItems.fulfilled, (state, action) => {
       state.items = action.payload.items;
       state.pageCount = Math.ceil(action.payload.count / state.limit);
+      if (state.pageCount < state.page) {
+        state.page = 1;
+      }
       state.status = Status.SUCCESS;
     });
     builder.addCase(fetchItems.rejected, (state) => {
@@ -39,6 +46,6 @@ const itemSlice = createSlice({
   },
 });
 
-export const { setItems, setPage } = itemSlice.actions;
+export const { setPage, setType, setTypeName } = itemSlice.actions;
 
 export default itemSlice.reducer;

@@ -1,5 +1,35 @@
 $black: #101010;
 $background-page: #EAEAEA;
+$white: #ffffff;
+$orange: #FFA542;
+$disabled: #787878;
+$countHover: #a66e31;
 
 
 $duration: .35s;
+
+// button /cart, /checkout
+
+@mixin button {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 600;
+    width: 100%;
+    color: $white;
+    background-color: $black;
+    border-radius: 20px;
+    border: 1px solid $black;
+    cursor: pointer;
+    transition: $duration;
+
+    &:hover {
+        background-color: $white;
+        color: $black;
+    }
+}
+
+@mixin flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

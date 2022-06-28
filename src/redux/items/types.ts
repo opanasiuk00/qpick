@@ -21,6 +21,8 @@ export interface ItemSliceState {
   items: Item[];
   status: Status;
   page: number;
+  type: string;
+  typeName: string;
   limit: number;
   pageCount: number;
 }

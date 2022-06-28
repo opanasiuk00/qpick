@@ -1,15 +1,15 @@
 @import '../../scss/variables';
 
+//main font-size: 16px;
+
 .paginator {
-    display: flex;
-    justify-content: center;
+    @include flex-center-center; // display: flex; justify-content: center; align-items: center;
 
     &_item {
-        font-size: 18px;
-        font-weight: 500;
+        font-size: 1.125rem;
         margin: 0px 5px;
-        cursor: pointer;
         transition: text-decoration $duration ease;
+        cursor: pointer;
 
         &:hover,
         &.active {
