@@ -6,6 +6,10 @@
     margin: 60px auto 120px;
     text-align: center;
 
+    @media (max-width: 799px) {
+        width: 325px;
+    }
+
     h2 {
         font-size: 1.875rem;
         line-height: 35px;
@@ -23,11 +27,5 @@
     button {
         padding: 8.5px;
         @include button;
-    }
-}
-
-@media (min-width: 325px) and (max-width: 799px) {
-    .notfound {
-        width: 325px;
     }
 }

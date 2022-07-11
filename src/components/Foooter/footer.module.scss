@@ -10,20 +10,21 @@
     margin-top: 50px;
     padding: 30px;
 
+    @media (max-width: 799px) {
+        padding: 10px;
+    }
+
     &_logo {
         font-size: 1.5625rem;
         font-weight: 700;
         line-height: 30px;
         text-transform: uppercase;
-    }
 
-    @media (min-width: 325px) and (max-width: 799px) {
-        &_logo {
+        @media (max-width: 799px) {
             font-size: 1.25rem;
             margin-right: 20px;
         }
     }
-
 
     &_menu {
         &_item {
@@ -48,17 +49,8 @@
             &:not(:last-of-type) {
                 margin-right: 15px;
             }
-        }
 
-        img {
-            width: 30px;
-            height: 30px;
-        }
-    }
-
-    @media (min-width: 325px) and (max-width: 799px) {
-        &_social {
-            a {
+            @media (max-width: 799px) {
                 display: block;
                 margin-bottom: 10px;
 
@@ -67,11 +59,10 @@
                 }
             }
         }
-    }
-}
 
-@media (min-width: 325px) and (max-width: 799px) {
-    .footer {
-        padding: 10px;
+        img {
+            width: 30px;
+            height: 30px;
+        }
     }
 }

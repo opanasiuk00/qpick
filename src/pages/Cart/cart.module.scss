@@ -16,13 +16,15 @@
         margin: 60px auto 120px;
         text-align: center;
 
+        @media (min-width: 325px) and (max-width: 799px) {
+            width: 325px;
+        }
+
         img {
             width: 410px;
             height: 315px;
-        }
 
-        @media (min-width: 325px) and (max-width: 799px) {
-            img {
+            @media (min-width: 325px) and (max-width: 799px) {
                 width: 325px;
                 height: 260px;
             }
@@ -43,12 +45,6 @@
         }
     }
 
-    @media (min-width: 325px) and (max-width: 799px) {
-        &_clear {
-            width: 325px;
-        }
-    }
-
     h2 {
         font-size: 1.25rem;
         font-weight: 600;
@@ -62,6 +58,10 @@
         align-items: flex-start;
         margin: 30px auto 50px;
 
+        @media (max-width: 799px) {
+            display: block;
+        }
+
         &_item {
             display: flex;
             justify-content: space-between;
@@ -70,6 +70,11 @@
             border-radius: 30px;
             padding: 20px;
             margin-bottom: 10px;
+
+            @media (max-width: 1200px) {
+                padding: 10px;
+                width: 325px;
+            }
 
             &_img {
                 img {
@@ -146,25 +151,16 @@
             }
         }
 
-        @media (min-width: 325px) and (max-width: 1200px) {
-            &_item {
-                padding: 10px;
-                width: 325px;
-            }
-        }
-
-    }
-
-    @media (min-width: 325px) and (max-width: 799px) {
-        &_items {
-            display: block;
-        }
     }
 
     &_total {
         width: 350px;
         background-color: $white;
         border-radius: 30px;
+
+        @media (max-width: 1200px) {
+            width: 325px;
+        }
 
         &_price {
             display: flex;
@@ -181,11 +177,4 @@
             }
         }
     }
-
-    @media (min-width: 325px) and (max-width: 1200px) {
-        &_total {
-            width: 325px;
-        }
-    }
-
 }

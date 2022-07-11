@@ -18,16 +18,12 @@
         color: $white;
         width: 300px;
         margin: 0px 183px 0px 40px;
-    }
 
-    @media (min-width: 800px) and (max-width: 1200px) {
-        &_name {
+        @media (max-width: 1200px) {
             margin: 0px 40px 0px 40px;
         }
-    }
 
-    @media (min-width: 325px) and (max-width: 799px) {
-        &_name {
+        @media (max-width: 799px) {
             margin: 0px;
         }
     }
@@ -37,10 +33,8 @@
         height: 189px;
         margin-top: auto;
         margin-bottom: 0px;
-    }
 
-    @media (min-width: 325px) and (max-width: 799px) {
-        &_img {
+        @media (max-width: 799px) {
             display: none;
         }
     }
