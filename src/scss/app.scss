@@ -8,16 +8,12 @@
     min-height: 100%;
     display: flex;
     flex-direction: column;
-}
 
-@media (min-width: 800px) and (max-width: 1200px) {
-    .wrapper {
+    @media (max-width: 1200px) {
         width: 768px;
     }
-}
 
-@media (min-width: 325px) and (max-width: 799px) {
-    .wrapper {
+    @media (max-width: 799px) {
         width: 325px;
     }
 }

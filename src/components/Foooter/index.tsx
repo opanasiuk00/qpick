@@ -17,13 +17,13 @@ const Footer: React.FC = () => {
         </li>
       </ul>
       <div className={styles.footer_social}>
-        <a href="#">
+        <a href="https://www.instagram.com/">
           <img src="./img/instagram.svg" alt="instagram" />
         </a>
-        <a href="#">
+        <a href="https://web.telegram.org/">
           <img src="./img/telegram.svg" alt="telegram" />
         </a>
-        <a href="#">
+        <a href="https://www.whatsapp.com/">
           <img src="./img/whatsApp.svg" alt="WhatsApp" />
         </a>
       </div>

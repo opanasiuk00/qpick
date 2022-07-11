@@ -20,7 +20,6 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    console.log(page, type);
     if (type) {
       navigate(`/?type=${typeList.find((obj) => obj.type === type)?.name.replace(/ /g, '-')}`);
       dispatch(fetchItems({ page, type }));

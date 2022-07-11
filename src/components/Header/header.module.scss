@@ -18,10 +18,8 @@
             text-transform: uppercase;
             margin-right: 75px;
             cursor: pointer;
-        }
 
-        @media (min-width: 325px) and (max-width: 799px) {
-            &_logo {
+            @media (max-width: 799px) {
                 margin-right: 20px;
             }
         }
@@ -86,6 +84,11 @@
             height: 25px;
             cursor: pointer;
 
+            img {
+                width: 24px;
+                height: 25px;
+            }
+
             span {
                 @include flex-center-center; // display: flex; justify-content: center; align-items: center;
                 position: absolute;
@@ -99,10 +102,6 @@
                 color: $white;
                 line-height: 18px;
             }
-        }
-
-        &_favorites {
-            margin-right: 30px;
         }
     }
 }

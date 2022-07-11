@@ -45,9 +45,10 @@ const Header: React.FC = () => {
     isMounted.current = true;
   }, [cartItems]);
 
+  const locationSearch = location.search.split('=')[1]?.replace(/-/g, ' ');
+  const typeItem = typeList.find((obj) => obj.name === locationSearch);
+
   React.useEffect(() => {
-    const locationSearch = location.search.split('=')[1]?.replace(/-/g, ' ');
-    const typeItem = typeList.find((obj) => obj.name === locationSearch);
     if (typeItem === undefined && location.pathname === '/') {
       navigate('/');
       dispatch(setTypeName(''));
@@ -81,9 +82,9 @@ const Header: React.FC = () => {
         <a href="/" className={styles.header_menu_logo}>
           Qpick
         </a>
-        {location.pathname == '/' && (
+        {location.pathname === '/' && (
           <div ref={sortRef} className={styles.header_menu_trigger}>
-            <img onClick={() => setOpen(!open)} src="./img/phone.svg" />
+            <img onClick={() => setOpen(!open)} src="./img/phone.svg" alt="phone" />
             <p onClick={() => setOpen(!open)}>{typeName ? typeName : 'Выбрать модель телефона'}</p>
             {open && (
               <div className={styles.header_menu_trigger_popup}>
@@ -103,8 +104,8 @@ const Header: React.FC = () => {
       <div className={styles.header_items}>
         {location.pathname !== '/cart' && (
           <div onClick={() => navigate('/cart')} className={styles.header_items_cart}>
-            <img src="./img/cart.svg" />
-            {cartLength > 0 ? <span>{cartLength}</span> : ''}
+            <img src="./img/cart.svg" alt="cart" />
+            {cartLength > 0 && <span>{cartLength}</span>}
           </div>
         )}
       </div>

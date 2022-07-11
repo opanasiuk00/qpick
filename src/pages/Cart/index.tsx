@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { selectCartData } from '../../redux/cart/selectors';
 import { addItem, minusCount, removeItem } from '../../redux/cart/slice';
 import { CartItem } from '../../redux/cart/type';
-import { setPage, setType, setTypeName } from '../../redux/items/slice';
 import { useAppDispatch } from '../../redux/store';
 import styles from './cart.module.scss';
 const Cart = () => {
@@ -19,6 +18,10 @@ const Cart = () => {
 
   const onClickMinusCount = (id: string) => {
     dispatch(minusCount(id));
+  };
+
+  const onClickRefreshPage = () => {
+    window.location.href = '/';
   };
 
   return (
@@ -68,10 +71,7 @@ const Cart = () => {
           <p>Но это никогда не поздно исправить :)</p>
           <button
             onClick={() => {
-              dispatch(setType(''));
-              dispatch(setTypeName(''));
-              dispatch(setPage(1));
-              navigate('/');
+              onClickRefreshPage();
             }}>
             В каталог товаров
           </button>

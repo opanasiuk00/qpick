@@ -11,7 +11,7 @@ const validation = yup.object().shape({
     .string()
     .required('Укажите телефон')
     .matches(/^(?:\+38)?(0\d{9})$/, 'Номер телефона недействителен'),
-  address: yup.string().required('Укажите адрес'),
+  city: yup.string().required('Укажите адрес'),
 });
 
 export default validation;

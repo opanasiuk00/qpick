@@ -20,16 +20,12 @@
         grid-column-gap: 30px;
         grid-row-gap: 30px;
         justify-content: center;
-    }
 
-    @media (min-width: 800px) and (max-width: 1200px) {
-        &_items {
+        @media (max-width: 1200px) {
             grid-template-columns: repeat(2, 320px);
         }
-    }
 
-    @media (min-width: 325px) and (max-width: 799px) {
-        &_items {
+        @media (max-width: 799px) {
             grid-template-columns: repeat(1, 320px);
             grid-column-gap: 0px;
             grid-row-gap: 30px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCartData } from '../../redux/cart/selectors';
 import { ErrorMessage, Field, Formik } from 'formik';
@@ -12,7 +12,7 @@ const Checkout: React.FC = () => {
   const { cartLength, totalPrice, cartItems } = useSelector(selectCartData);
 
   if (cartLength === 0) {
-    return <Navigate to="/" />;
+    return <Navigate to="/cart" />;
   } else {
     return (
       <div className={styles.checkout}>
@@ -64,10 +64,10 @@ const Checkout: React.FC = () => {
             surname: '',
             email: '',
             phone: '',
-            address: '',
+            city: '',
           }}
           onSubmit={(values) => {
-            alert('Ваш заказ оформлен, console.log');
+            alert('Ваш заказ оформлен, console');
             console.log({ values, cartItems, totalPrice });
           }}
           validationSchema={validation}>
@@ -89,9 +89,9 @@ const Checkout: React.FC = () => {
               <Field id="phone" name="phone" />
               <ErrorMessage className={styles.checkout_form_error} component="p" name={'phone'} />
 
-              <label htmlFor="address">Введите населенный пункт</label>
-              <Field id="address" name="address" />
-              <ErrorMessage className={styles.checkout_form_error} component="p" name={'address'} />
+              <label htmlFor="city">Введите населенный пункт</label>
+              <Field id="city" name="city" />
+              <ErrorMessage className={styles.checkout_form_error} component="p" name={'city'} />
 
               <button type="submit">Закончить оформление</button>
             </form>
