@@ -14,7 +14,7 @@
         padding: 10px;
     }
 
-    &_logo {
+    &__logo {
         font-size: 1.5625rem;
         font-weight: 700;
         line-height: 30px;
@@ -26,29 +26,25 @@
         }
     }
 
-    &_menu {
-        &_item {
-            a {
-                font-size: 0.9375rem;
-                font-weight: 400;
-                line-height: 20px;
-            }
+    &__item {
+        a {
+            font-size: 0.9375rem;
+            font-weight: 400;
+            line-height: 20px;
+        }
 
-            &:hover {
-                text-decoration: underline;
-            }
+        &:hover {
+            text-decoration: underline;
+        }
 
-            &:not(:last-of-type) {
-                margin-bottom: 10px;
-            }
+        &:not(:last-of-type) {
+            margin-bottom: 10px;
         }
     }
 
-    &_social {
-        a {
-            &:not(:last-of-type) {
-                margin-right: 15px;
-            }
+    &__social {
+        &:not(:last-of-type) {
+            margin-right: 15px;
 
             @media (max-width: 799px) {
                 display: block;

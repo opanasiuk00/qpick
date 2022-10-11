@@ -14,12 +14,12 @@ export const Paginator: React.FC<PageCountProps> = ({ pageCount, page, onChangeP
         <div className={styles.paginator}>
           {[...new Array(pageCount)].map((_, index) => (
             <p
-              key={index}
               className={
                 page === index + 1
-                  ? styles.paginator_item + ' ' + styles.active
-                  : styles.paginator_item
+                  ? styles.paginator__item + ' ' + styles.paginator__item_active
+                  : styles.paginator__item
               }
+              key={index}
               onClick={() => onChangePage(index + 1)}>
               {index + 1}
             </p>

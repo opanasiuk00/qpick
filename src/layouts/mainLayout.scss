@@ -1,6 +1,6 @@
-@import './_variables';
-@import './libs/_normalize';
-@import './fonts.scss';
+@import '../scss/variables';
+@import '../scss/libs/normalize';
+@import '../scss/fonts.scss';
 
 .wrapper {
     width: 1110px;

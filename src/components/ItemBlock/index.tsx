@@ -18,15 +18,15 @@ const ItemBlock: React.FC<ItemBlockProps> = ({ items, cartItems, addItemToCart, 
         <h2>error</h2>
       ) : (
         <>
-          <h2 className={styles.content_title}>Чехлы</h2>
-          <div className={styles.content_items}>
+          <h2 className={styles.content__title}>Чехлы</h2>
+          <div className={styles.content__items}>
             {status === 'loading'
               ? [...new Array(6)].map((_, index) => <SkeletonItem key={index} />)
               : items.map((obj) => (
-                  <div key={obj.id} className={styles.content_item}>
+                  <div className={styles.content__item} key={obj.id}>
                     <img src={obj.img} alt={obj.typeName} />
                     <h3>{obj.title}</h3>
-                    <div>
+                    <div className={styles.content__item_info}>
                       <p>{obj.price}₴</p>
                       <button
                         onClick={() => {
