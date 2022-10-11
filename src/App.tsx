@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
-import './scss/app.scss';
 
 const NotFound = React.lazy(() => import(/* webpackChunkName: "NotFound" */ './pages/NotFound'));
 const Checkout = React.lazy(() => import(/* webpackChunkName: "Checkout" */ './pages/Checkout'));
@@ -22,7 +21,6 @@ const App: React.FC = () => {
             </Suspense>
           }
         />
-        <Route path="/cart" element={<Cart />} />
         <Route
           path="/checkout"
           element={

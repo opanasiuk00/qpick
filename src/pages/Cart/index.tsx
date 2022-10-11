@@ -6,7 +6,12 @@ import { addItem, minusCount, removeItem } from '../../redux/cart/slice';
 import { CartItem } from '../../redux/cart/type';
 import { useAppDispatch } from '../../redux/store';
 import styles from './cart.module.scss';
-const Cart = () => {
+
+type CartProps = {
+  activeCart: boolean;
+  setActiveCart: (activeCart: boolean) => void;
+};
+const Cart: React.FC<CartProps> = ({ activeCart, setActiveCart }) => {
   const { cartItems, totalPrice } = useSelector(selectCartData);
 
   const navigate = useNavigate();
@@ -20,22 +25,23 @@ const Cart = () => {
     dispatch(minusCount(id));
   };
 
-  const onClickRefreshPage = () => {
-    window.location.href = '/';
-  };
-
   return (
-    <div className={styles.cart}>
+    <div className={activeCart ? styles.cart + ' ' + styles.cart__active : styles.cart}>
+      <p className={styles.cart__close} onClick={() => setActiveCart(false)}>
+        &#10006;
+      </p>
       {cartItems.length > 0 ? (
         <>
-          <h2>Корзина</h2>
-          <div className={styles.cart_items}>
+          <div>
+            <h2>Корзина</h2>
+          </div>
+          <div className={styles.cart__items}>
             <div>
               {cartItems.map((obj) => (
-                <div key={obj.id} className={styles.cart_items_item}>
-                  <div className={styles.cart_items_item_img}>
-                    <img src={obj.img} alt={obj.typeName} />
-                    <div className={styles.cart_items_item_img_count}>
+                <div className={styles.cart__item} key={obj.id}>
+                  <div>
+                    <img className={styles.cart__item_img} src={obj.img} alt={obj.typeName} />
+                    <div className={styles.cart__item_count}>
                       <button disabled={obj.count === 1} onClick={() => onClickMinusCount(obj.id)}>
                         <img src="./img/minus.svg" alt="minus" />
                       </button>
@@ -45,36 +51,40 @@ const Cart = () => {
                       </button>
                     </div>
                   </div>
-                  <div className={styles.cart_items_item_title}>
+                  <div className={styles.cart__item_title}>
                     <h3>{obj.title}</h3>
                     <p>{obj.price}₴</p>
                   </div>
-                  <div className={styles.cart_items_item_delete}>
-                    <p onClick={() => dispatch(removeItem(obj.id))}>&#10006;</p>
+                  <div>
+                    <p
+                      className={styles.cart__item_delete}
+                      onClick={() => dispatch(removeItem(obj.id))}>
+                      &#10006;
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className={styles.cart_total}>
-              <div className={styles.cart_total_price}>
+            <div className={styles.cart__total}>
+              <div className={styles.cart__total_price}>
                 <h3>Итого</h3>
                 <p>{totalPrice}₴</p>
               </div>
-              <button onClick={() => navigate('/checkout')}>Перейти к оформлению</button>
+              <button
+                onClick={() => {
+                  setActiveCart(false);
+                  navigate('/checkout');
+                }}>
+                Перейти к оформлению
+              </button>
             </div>
           </div>
         </>
       ) : (
-        <div className={styles.cart_clear}>
+        <div className={styles.cart__clear}>
           <img src="./img/clearCart.png" alt="cart" />
           <h2>Корзина пуста</h2>
           <p>Но это никогда не поздно исправить :)</p>
-          <button
-            onClick={() => {
-              onClickRefreshPage();
-            }}>
-            В каталог товаров
-          </button>
         </div>
       )}
     </div>

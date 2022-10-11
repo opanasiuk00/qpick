@@ -4,40 +4,52 @@
 
 
 .cart {
-    margin-top: 20px;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    padding: 10px;
+    background-color: $white;
+    border-radius: 20px;
+    width: 340px;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity $duration ease;
 
-    button {
-        padding: 18.5px;
-        @include button;
+    &__active {
+        opacity: 1;
     }
 
-    &_clear {
-        width: 540px;
-        margin: 60px auto 120px;
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    button {
+        padding: 5px;
+        @include button;
+        font-size: 0.6765rem;
+        border-radius: 10px;
+    }
+
+    &__clear {
+        width: 325px;
+        margin: 60px auto;
         text-align: center;
 
-        @media (min-width: 325px) and (max-width: 799px) {
-            width: 325px;
-        }
-
         img {
-            width: 410px;
-            height: 315px;
-
-            @media (min-width: 325px) and (max-width: 799px) {
-                width: 325px;
-                height: 260px;
-            }
+            width: 225px;
         }
 
         h2 {
-            font-size: 1.875rem;
+            font-size: 1.275rem;
             line-height: 35px;
             margin-top: 30px;
         }
 
         p {
-            font-size: 1.25rem;
             font-weight: 400;
             line-height: 24px;
             color: #838383;
@@ -52,111 +64,99 @@
         margin-bottom: 15px;
     }
 
-    &_items {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin: 30px auto 50px;
+    &__items {
+        margin: 20px auto;
 
         @media (max-width: 799px) {
             display: block;
         }
+    }
 
-        &_item {
-            display: flex;
-            justify-content: space-between;
-            width: 480px;
-            background-color: $white;
-            border-radius: 30px;
-            padding: 20px;
-            margin-bottom: 10px;
+    &__item {
+        display: flex;
+        background-color: $white;
+        border-radius: 30px;
+        padding: 20px;
+        margin-bottom: 10px;
 
-            @media (max-width: 1200px) {
-                padding: 10px;
-                width: 325px;
-            }
+        @media (max-width: 1200px) {
+            padding: 10px;
+            width: 325px;
+        }
 
-            &_img {
+        &_img {
+            width: 40px;
+        }
+
+        &_count {
+            @include flex-center-center; // display: flex; justify-content: center; align-items: center;
+
+            button {
+                @include flex-center-center; // display: flex; justify-content: center; align-items: center;
+                @include noselect;
+                width: 14px;
+                height: 14px;
+                padding: 0px;
+                border: none;
+                font-size: 0.6rem;
+                color: $white;
+                background-color: $orange;
+                border-radius: 50%;
+                transition: $duration;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $countHover;
+                }
+
+                &:disabled {
+                    opacity: 0.4;
+                    background-color: $disabled;
+                    cursor: default;
+
+
+                }
+
                 img {
-                    width: 80px;
-                    height: 155.55px;
+                    width: 10px;
                 }
 
-                &_count {
-                    @include flex-center-center; // display: flex; justify-content: center; align-items: center;
-
-                    button {
-                        @include flex-center-center; // display: flex; justify-content: center; align-items: center;
-                        @include noselect;
-                        width: 20.8px;
-                        height: 20.8px;
-                        padding: 0px;
-                        border: none;
-                        font-size: 1.0625rem;
-                        color: $white;
-                        background-color: $orange;
-                        border-radius: 50%;
-                        transition: $duration;
-                        cursor: pointer;
-
-                        &:hover {
-                            background-color: $countHover;
-                        }
-
-                        &:disabled {
-                            opacity: 0.4;
-                            background-color: $disabled;
-                            cursor: default;
-
-
-                        }
-
-                        img {
-                            width: 12px;
-                        }
-
-                    }
-
-                    span {
-                        font-size: 0.9375rem;
-                        font-weight: 600;
-                        line-height: 18px;
-                        margin: 0px 5px;
-                    }
-                }
             }
 
-            &_title {
-                align-self: center;
-                margin-left: 20px;
-
-                h3 {
-                    font-size: 1.0625rem;
-                    line-height: 20px;
-                    margin-bottom: 20px;
-                }
-            }
-
-            &_delete {
-                p {
-                    @include noselect;
-                    font-size: 1.15rem;
-                    transition: color $duration ease;
-                    cursor: pointer;
-
-                    &:hover {
-                        color: #838383;
-                    }
-                }
+            span {
+                font-size: 0.7375rem;
+                font-weight: 600;
+                line-height: 18px;
+                margin: 0px 5px;
             }
         }
 
+        &_title {
+            width: 200px;
+            margin-left: 20px;
+
+            h3 {
+                font-size: 0.7625rem;
+                line-height: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+        &_delete {
+            @include noselect;
+            font-size: 0.85rem;
+            transition: color $duration ease;
+            cursor: pointer;
+            margin-left: 10px;
+
+            &:hover {
+                color: #838383;
+            }
+        }
     }
 
-    &_total {
-        width: 350px;
-        background-color: $white;
-        border-radius: 30px;
+    &__total {
+        width: 200px;
 
         @media (max-width: 1200px) {
             width: 325px;
@@ -170,7 +170,7 @@
 
             h2,
             p {
-                font-size: 0.9375rem;
+                font-size: 0.7375rem;
                 font-weight: 600;
                 line-height: 18px;
                 text-transform: uppercase;

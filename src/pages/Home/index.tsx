@@ -42,8 +42,8 @@ const Home: React.FC = () => {
   return (
     <>
       <div className={styles.title}>
-        <h1 className={styles.title_name}>Аксессуары для Iphone 13 Pro Max</h1>
-        <img className={styles.title_img} src="./img/iPhone13promax.png" alt="iphone 13 pro max" />
+        <h1 className={styles.title__name}>Аксессуары для Iphone 13 Pro Max</h1>
+        <img className={styles.title__img} src="./img/iPhone13promax.png" alt="iphone 13 pro max" />
       </div>
       <ItemBlock
         items={items}
