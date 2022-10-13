@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/qpick/static/css/main.8f809d24.css",
-    "main.js": "/qpick/static/js/main.aff5de6a.js",
+    "main.js": "/qpick/static/js/main.8ed3d48e.js",
     "NotFound.css": "/qpick/static/css/NotFound.ac75a626.chunk.css",
     "NotFound.js": "/qpick/static/js/NotFound.defacdff.chunk.js",
     "Checkout.css": "/qpick/static/css/Checkout.ed9e1bc1.chunk.css",
@@ -16,7 +16,7 @@
     "static/media/Manrope-SemiBold.ttf": "/qpick/static/media/Manrope-SemiBold.33d2f89e0616126658af.ttf",
     "index.html": "/qpick/index.html",
     "main.8f809d24.css.map": "/qpick/static/css/main.8f809d24.css.map",
-    "main.aff5de6a.js.map": "/qpick/static/js/main.aff5de6a.js.map",
+    "main.8ed3d48e.js.map": "/qpick/static/js/main.8ed3d48e.js.map",
     "NotFound.ac75a626.chunk.css.map": "/qpick/static/css/NotFound.ac75a626.chunk.css.map",
     "NotFound.defacdff.chunk.js.map": "/qpick/static/js/NotFound.defacdff.chunk.js.map",
     "Checkout.ed9e1bc1.chunk.css.map": "/qpick/static/css/Checkout.ed9e1bc1.chunk.css.map",
@@ -27,6 +27,6 @@
   },
   "entrypoints": [
     "static/css/main.8f809d24.css",
-    "static/js/main.aff5de6a.js"
+    "static/js/main.8ed3d48e.js"
   ]
 }
