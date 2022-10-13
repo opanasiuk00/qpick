@@ -85,7 +85,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__menu}>
-        <a className={styles.header__logo} href="/">
+        <a className={styles.header__logo} href="/qpick">
           Qpick
         </a>
         {location.pathname === '/' && (

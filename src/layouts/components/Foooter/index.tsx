@@ -5,7 +5,7 @@ import styles from './footer.module.scss';
 const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
-      <a className={styles.footer__logo} href="/">
+      <a className={styles.footer__logo} href="/qpick">
         Qpick
       </a>
       <ul className={styles.footer__menu}>
