@@ -1,6 +1,6 @@
 import React from 'react';
-import { CartItem } from '../../redux/cart/type';
-import { Item } from '../../redux/items/types';
+import { CartItem } from '../../../../redux/cart/type';
+import { Item } from '../../../../redux/items/types';
 import styles from './itemblock.module.scss';
 import SkeletonItem from './SkeletonItem';
 

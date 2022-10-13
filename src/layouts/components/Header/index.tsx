@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { selectCartData } from '../../redux/cart/selectors';
-import { useAppDispatch } from '../../redux/store';
-import { setType, setTypeName } from '../../redux/items/slice';
+import Cart from '../../../pages/Cart';
+import { selectCartData } from '../../../redux/cart/selectors';
+import { selectItemData } from '../../../redux/items/selectors';
+import { setType, setTypeName } from '../../../redux/items/slice';
+import { useAppDispatch } from '../../../redux/store';
 import styles from './header.module.scss';
-import { selectItemData } from '../../redux/items/selectors';
-import Cart from '../../pages/Cart';
 
 type typePhone = {
   name: string;
@@ -92,24 +92,25 @@ const Header: React.FC = () => {
           <div className={styles.header__trigger} ref={sortRef}>
             <img onClick={() => setOpen(!open)} src="./img/phone.svg" alt="phone" />
             <p onClick={() => setOpen(!open)}>{typeName ? typeName : 'Выбрать модель телефона'}</p>
-            {open && (
-              <div className={styles.header__sort}>
-                {typeList.map((obj, i) => (
-                  <p
-                    className={typeName === obj.name ? styles.active : ''}
-                    key={i}
-                    onClick={() => searchType(obj.name, obj.type)}>
-                    {obj.name}
-                  </p>
-                ))}
-              </div>
-            )}
+            <div
+              className={
+                open ? styles.header__sort + ' ' + styles.header__sort__active : styles.header__sort
+              }>
+              {typeList.map((obj, i) => (
+                <p
+                  className={typeName === obj.name ? styles.active : ''}
+                  key={i}
+                  onClick={() => searchType(obj.name, obj.type)}>
+                  {obj.name}
+                </p>
+              ))}
+            </div>
           </div>
         )}
       </div>
       <div className={styles.header__items}>
         <div className={styles.header__cart} ref={cartRef}>
-          <div onClick={() => setActiveCart(true)}>
+          <div onClick={() => setActiveCart(!activeCart)}>
             <img className={styles.header__cart_img} src="./img/cart.svg" alt="cart" />
             {cartLength > 0 && <span className={styles.header__cart_count}>{cartLength}</span>}
           </div>
