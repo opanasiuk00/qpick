@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { typeList } from '../../components/Header';
-import ItemBlock from '../../components/ItemBlock';
-import { Paginator } from '../../components/Paginator';
+import ItemBlock from './components/ItemBlock';
+import { Paginator } from './components/Paginator';
 import { selectCartData } from '../../redux/cart/selectors';
 import { addItem } from '../../redux/cart/slice';
 import { CartItem } from '../../redux/cart/type';
@@ -12,6 +11,7 @@ import { selectItemData } from '../../redux/items/selectors';
 import { setPage } from '../../redux/items/slice';
 import { useAppDispatch } from '../../redux/store';
 import styles from './home.module.scss';
+import { typeList } from '../../layouts/components/Header';
 
 const Home: React.FC = () => {
   const { items, status, page, pageCount, type } = useSelector(selectItemData);
