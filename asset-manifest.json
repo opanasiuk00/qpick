@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/qpick/static/css/main.8f809d24.css",
+    "main.js": "/qpick/static/js/main.aff5de6a.js",
+    "NotFound.css": "/qpick/static/css/NotFound.ac75a626.chunk.css",
+    "NotFound.js": "/qpick/static/js/NotFound.defacdff.chunk.js",
+    "Checkout.css": "/qpick/static/css/Checkout.ed9e1bc1.chunk.css",
+    "Checkout.js": "/qpick/static/js/Checkout.5717a4f7.chunk.js",
+    "Service.css": "/qpick/static/css/Service.a78ecda5.chunk.css",
+    "Service.js": "/qpick/static/js/Service.655d42ea.chunk.js",
+    "static/js/817.b327fc8d.chunk.js": "/qpick/static/js/817.b327fc8d.chunk.js",
+    "static/media/Montserrat-SemiBold.ttf": "/qpick/static/media/Montserrat-SemiBold.04af9a9e62bb4c47bd55.ttf",
+    "static/media/Montserrat-Medium.ttf": "/qpick/static/media/Montserrat-Medium.3a0917345468c959207a.ttf",
+    "static/media/Montserrat-Bold.ttf": "/qpick/static/media/Montserrat-Bold.63fae500fdcf19ce83d4.ttf",
+    "static/media/Montserrat-Regular.ttf": "/qpick/static/media/Montserrat-Regular.ac98a5f5ca71180fe293.ttf",
+    "static/media/Manrope-SemiBold.ttf": "/qpick/static/media/Manrope-SemiBold.33d2f89e0616126658af.ttf",
+    "index.html": "/qpick/index.html",
+    "main.8f809d24.css.map": "/qpick/static/css/main.8f809d24.css.map",
+    "main.aff5de6a.js.map": "/qpick/static/js/main.aff5de6a.js.map",
+    "NotFound.ac75a626.chunk.css.map": "/qpick/static/css/NotFound.ac75a626.chunk.css.map",
+    "NotFound.defacdff.chunk.js.map": "/qpick/static/js/NotFound.defacdff.chunk.js.map",
+    "Checkout.ed9e1bc1.chunk.css.map": "/qpick/static/css/Checkout.ed9e1bc1.chunk.css.map",
+    "Checkout.5717a4f7.chunk.js.map": "/qpick/static/js/Checkout.5717a4f7.chunk.js.map",
+    "Service.a78ecda5.chunk.css.map": "/qpick/static/css/Service.a78ecda5.chunk.css.map",
+    "Service.655d42ea.chunk.js.map": "/qpick/static/js/Service.655d42ea.chunk.js.map",
+    "817.b327fc8d.chunk.js.map": "/qpick/static/js/817.b327fc8d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f809d24.css",
+    "static/js/main.aff5de6a.js"
+  ]
+}
